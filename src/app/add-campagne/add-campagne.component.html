@@ -1,0 +1,78 @@
+
+  <div class="container p-4 " >
+
+    <form class="row g-3 " [formGroup]="formCampagne" (ngSubmit)="onSubmit()"  >
+
+      <div class="col-md-8">
+        <label  class="form-label">Campagne :</label>
+        <input type="text" class="form-control"  formControlName="name"
+               [class.is-invalid]=" (formCampagne.get('name')?.invalid) &&
+               (formCampagne.get('name')?.dirty) ||
+               (formCampagne.get('name')?.touched) " />
+
+        <span *ngIf="formCampagne.get('name')?.hasError('required') &&
+               (formCampagne.get('name')?.dirty) ||
+               (formCampagne.get('name')?.touched) "> Champ vide </span>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputAddress" class="form-label">Date Début</label>
+        <input formControlName="dateDebut" type="date" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputAddress2" class="form-label">Date Fin</label>
+        <input formControlName="dateFin" type="date" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Pays</label>
+        <select formControlName="countryName" id="inputState" class="form-select">
+          <option    *ngFor="let c of countries | async " selected> {{c.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Game</label>
+        <select   (change)="onChangeGame($event)" formControlName="gameName" id="" class="form-select">
+          <option  *ngFor="let g of games | async " [value]="g.name" selected>{{g.name}}</option>
+        </select>
+      </div>
+
+      <table class="table">
+        <thead class="table-light">
+        <tr >
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let ar of articles | async " >
+          <th scope="row">
+            <input
+
+              class="form-check-input"
+              type="checkbox"
+              [value]="ar.id"
+              (change)="onSelectArticle($event)" />
+          </th>
+          <td>{{ar.gameName}}</td>
+          <td>{{ar.id}}</td>
+          <td>{{ar.level}}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <div class="col-12">
+        <button [disabled]="this.formCampagne.invalid"  type="submit" class="btn btn-primary">Ajouter campagne</button>
+      </div>
+    </form>
+
+    {{formCampagne.value | json}}
+  </div>
+
+

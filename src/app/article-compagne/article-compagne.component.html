@@ -1,0 +1,32 @@
+<ng-container *ngIf="articles | async as articleslist ; else failureOrLoading">
+  <div class="card">
+    <div class="card-body">
+      <div class="row row-cols-2 row-cols-md-3 g-4">
+        <div *ngFor=" let c of articles | async" class="col" style="width: 18rem;">
+          <div class="card">
+            <div class="card-body ">
+
+              <h5> {{c.id}}</h5>
+              <h5> {{c.userName}}</h5>
+              <h5> {{c.gameName}}</h5>
+              <h5> {{c.profilIconUrl}}</h5>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #failureOrLoading>
+  <ng-container *ngIf="errorMessage; else Loading">
+    {{errorMessage}}
+  </ng-container>
+  <ng-template #Loading>
+    Loading ..
+  </ng-template>
+</ng-template>
+

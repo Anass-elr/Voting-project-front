@@ -1,0 +1,36 @@
+<ng-container *ngIf="campagnes | async as campagneslist ; else failureOrLoading">
+
+<div class="container p-4">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div *ngFor=" let c of campagnes | async" class="col h-300" >
+
+          <div class="card ">
+            <img src="..." class="card-img-top" alt="...">
+
+            <div class="card-body ">
+              <h5> Campagne </h5>
+              <p> {{c.dateDebut}}</p>
+              <p> {{c.dateFin}}</p>
+              <p> {{c.gameName}}</p>
+              <p> {{c.countryName}}</p>
+
+              <a  class="btn btn-info" routerLink="/articles/{{c.id}}"> See More </a>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+</ng-container>
+
+<ng-template #failureOrLoading>
+  <ng-container *ngIf="errorMessage; else Loading">
+      {{errorMessage}}
+  </ng-container>
+  <ng-template #Loading>
+    Loading ..
+  </ng-template>
+</ng-template>
+
+
