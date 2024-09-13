@@ -1,3 +1,4 @@
+<!--
 <ng-container *ngIf="articles | async as articleslist ; else failureOrLoading">
   <div class="card">
     <div class="card-body">
@@ -29,4 +30,106 @@
     Loading ..
   </ng-template>
 </ng-template>
+-->
+
+<div class="min-vh-100 bg-dark text-light py-4 py-sm-5 py-md-6 font-audiowide d-flex justify-content-center align-items-start">
+  <div class="card bg-black border-secondary shadow-lg w-100" style="max-width: 1300px;">
+    <div class="card-header bg-black border-bottom border-secondary p-4">
+      <h1 class="card-title h3 text-center text-success text-uppercase fw-bold tracking-wide mb-0">
+        Top Gaming Articles
+      </h1>
+    </div>
+    <div class="card-body p-4">
+      <div class="table-responsive">
+        <table class="table table-dark table-hover">
+          <thead>
+          <tr>
+            <th scope="col" class="text-success ">Votes</th>
+            <th scope="col" class="text-success">IGN</th>
+
+            <th scope="col" class="text-success">Role</th>
+            <th scope="col" class="text-success">Rank</th>
+            <th scope="col" class="text-success">level</th>
+
+            <th scope="col" class="text-success">Games</th>
+            <th scope="col" class="text-success ">Mastery points</th>
+            <th scope="col" class="text-success text-end">Vote</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="text-white-50" *ngFor="let article of articles | async; let even = even" [ngClass]="{'bg-black': even, 'bg-dark': !even}">
+
+            <td class="align-middle">
+              <div class="d-flex align-items-center">
+                <span class="text-success fw-bold me-2"> Votes</span>
+                <!--    <i [class]="'bi ' + getRankChangeIcon(article) + ' ' + getRankChangeColor(article)"></i> -->
+              </div>
+            </td>
+
+            <td class="align-middle ">
+              <div class="d-flex align-items-center">
+                <img  [src]="" [alt]="article.userName" class="rounded-circle me-3" width="40" height="40">
+                <span class="fw-medium text-white">{{article.gameName}}</span>
+              </div>
+            </td>
+
+
+            <td class="align-middle">
+              <div class="d-flex align-items-center">
+                <span class="text-white fw-bold me-2">Role</span>
+                <!--    <i [class]="'bi ' + getRankChangeIcon(article) + ' ' + getRankChangeColor(article)"></i> -->
+              </div>
+            </td>
+
+            <td class="align-middle">
+              <div class="d-flex align-items-center">
+                <span class="text-white fw-bold me-2">Rank</span>
+                <!--    <i [class]="'bi ' + getRankChangeIcon(article) + ' ' + getRankChangeColor(article)"></i> -->
+              </div>
+            </td>
+
+
+            <td class="align-middle">
+              <div class="d-flex align-items-center">
+                <span class="text-white fw-light me-2">{{article.wins}}</span>
+              <!--    <i [class]="'bi ' + getRankChangeIcon(article) + ' ' + getRankChangeColor(article)"></i> -->
+              </div>
+            </td>
+
+
+            <td class="align-middle ">
+                <span class="badge text-white text-dark fw-bold">
+                 <!-- {{article.votes | number}}  --> 1200
+                </span>
+            </td>
+
+            <td class="align-middle ">
+                <span class="badge text-white text-dark fw-bold">
+                 <!-- {{article.votes | number}}  --> 1500
+                </span>
+            </td>
+
+            <td class="align-middle text-end">
+              <button (click)="onVote(article.id)" class="btn btn-success  text-dark font-weight-bold text-uppercase p-3 rounded-0 shadow-lg aggressive-button">
+                <div class="button-content">
+                  <i class="bi bi-lightning-charge-fill me-2 rotate-icon"></i>
+                  <span class="me-2">Vote Now!</span>
+                  <span class="badge bg-dark text-success rounded-1 p-2"></span>
+                </div>
+              </button>
+
+            </td>
+
+          </tr>
+
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 

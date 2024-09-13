@@ -1,0 +1,20 @@
+.aggressive-button {
+  transform: skew(7deg);
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.05em;
+
+
+  &:hover {
+    transform: skew(7deg) scale(1.07);
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+  }
+
+  .rotate-icon {
+    display: inline-block;
+    transform: rotate(-12deg);
+  }
+}
+
+.badge {
+  font-family: monospace;
+}

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.font-audiowide {
+  font-family: 'Audiowide', cursive;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.bg-black {
+  background-color: #0F0F0F !important;
+}
+
+.text-success {
+  color: #4ADE80 !important;
+}
+
+.bg-success {
+  background-color: #4ADE80 !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #2A2A2A !important;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #FFFFFF;
+}
+
+.table > :not(caption) > * > * {
+  border-bottom-color: #2A2A2A;
+}
+
+td {
+  font-family: cursive;
+}
+
+
+.card {
+  background-color: #1A1A1A !important;
+}
+
+.card-header {
+  background-color: #1A1A1A !important;
+}
+
+.badge {
+  font-weight: normal;
+}
+
+
+.aggressive-button {
+  transform: skew(7deg);
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.05em;
+
+
+  &:hover {
+    transform: skew(7deg) scale(1.07);
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+  }
+
+  .rotate-icon {
+    display: inline-block;
+    transform: rotate(-12deg);
+  }
+}
+
+.badge {
+  font-family: monospace;
+}

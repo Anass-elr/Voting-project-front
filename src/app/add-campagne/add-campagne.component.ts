@@ -22,7 +22,7 @@ import {Campagne} from "../model/campagne.model";
     JsonPipe
   ],
   templateUrl: './add-campagne.component.html',
-  styleUrl: './add-campagne.component.css'
+  styleUrl: './add-campagne.component.scss'
 })
 export class AddCampagneComponent implements OnInit{
 
@@ -108,7 +108,7 @@ export class AddCampagneComponent implements OnInit{
       dateFin        : this.parseDate(this.formCampagne.value.dateFin),
       countryName    : this.formCampagne.value.countryName?? '',
       gameName       : this.formCampagne.value.gameName?? '',
-      artilcesSelectedId : this.articlesChecked
+      articlesSelectedId: this.articlesChecked
     } ;
   }
 
@@ -118,4 +118,11 @@ export class AddCampagneComponent implements OnInit{
     // Convertir la chaîne en Date ou retourner une date par défaut si invalide
     return dateString ? new Date(dateString) : new Date();
   }
+
+/**
+  isArticleSelected(articleId: string): boolean {
+    return this.formCampagne.get('articlesSelectedId').value.includes(articleId);
+  } **/
+
+
 }

@@ -1,8 +1,8 @@
 export interface Campagne{
-  id:String;
+  id             :String;
   dateDebut      : Date;
   dateFin        : Date;
   countryName    : String;
   gameName       : String;
-  artilcesSelectedId : Array<String>;
+  articlesSelectedId : Array<String>;
 }

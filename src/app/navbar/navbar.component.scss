@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.font-audiowide {
+  font-family: 'Audiowide', cursive;
+}
+
+.bg-gray-900 {
+  background-color: #111827;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-green-400 {
+  color: #4ade80;
+}
+
+.hover-green-400:hover {
+  color: #4ade80;
+}
+
+.hover-bg-gray-800:hover {
+  background-color: #1f2937;
+}
+
+.bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.border-gray-700 {
+  border-color: #374151;
+}
+
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.dropdown-menu {
+  min-width: 200px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: #374151;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .d-md-flex {
+    display: none !important;
+  }
+}

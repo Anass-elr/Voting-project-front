@@ -5,6 +5,13 @@ import {catchError, Observable, throwError} from "rxjs";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {NgFor, NgForOf} from "@angular/common";
 
+interface NavItem {
+  name: String;
+  icon: String;
+  href: String;
+}
+
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -13,13 +20,19 @@ import {NgFor, NgForOf} from "@angular/common";
     NgFor
   ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.scss'
 })
 
 export class NavbarComponent implements OnInit{
 
   games! :       any;
   errorMessage! :String;
+
+  navItems: NavItem[] = [
+    { name: 'Articles', icon: 'bi-newspaper', href: '/articles' },
+    { name: 'Campagne vote', icon: 'bi-trophy', href: '/campagnes' },
+    { name: 'Tournaments', icon: 'bi-sword', href: '/tournaments' },
+  ];
 
   constructor(private http:HttpClient) {
   }
@@ -34,6 +47,13 @@ export class NavbarComponent implements OnInit{
        this.errorMessage = err.message;
      }
    })
+  }
+
+
+  isDropdownOpen = false;
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
 
